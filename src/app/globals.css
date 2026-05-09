@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-base: #060A14;
+  --color-surface: #0D1525;
+  --color-elevated: #111E33;
+  --color-subtle: #0A1020;
+  
+  --color-brand-primary: #005EFF;
+  --color-brand-hover: #0050D8;
+  --color-brand-glow: rgba(0, 94, 255, 0.15);
+  --color-brand-dim: #1A3A7A;
+  
+  --color-orange: #E87D00;
+  --color-orange-hover: #cc6e00;
+  --color-orange-dim: #7A3C00;
+  
+  --color-status-green: #00C47A;
+  --color-status-red: #E84040;
+  --color-status-yellow: #F5A623;
+  --color-status-teal: #00C4A7;
+  
+  --color-content-primary: #FFFFFF;
+  --color-content-secondary: #8B9BC8;
+  --color-content-muted: #4A5A7A;
+  
+  --color-border-subtle: #1A2540;
+  --color-border-default: #243560;
+  --color-border-accent: rgba(0, 94, 255, 0.3);
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+
+  --tracking-display: -0.02em;
+  --tracking-eyebrow: 0.1em;
+
+  --shadow-glow: 0 0 18px rgba(0, 94, 255, 0.15);
+  --shadow-glow-lg: 0 0 32px rgba(0, 94, 255, 0.25);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .text-display-hero { @apply font-display text-[48px] md:text-[72px] font-extrabold leading-[1.05] tracking-display; }
+  .text-display-xl { @apply font-display text-[40px] md:text-[56px] font-bold leading-[1.05] tracking-display; }
+  .text-display-lg { @apply font-display text-[32px] md:text-[44px] font-bold leading-[1.05] tracking-display; }
+  .text-display-md { @apply font-display text-[28px] md:text-[34px] font-bold leading-[1.05] tracking-display; }
+  .text-display-sm { @apply font-display text-[22px] md:text-[26px] font-semibold leading-[1.05] tracking-display; }
+  
+  .text-eyebrow { @apply font-body text-[12px] font-semibold uppercase tracking-eyebrow text-brand-primary; }
+  
+  .text-body-lg { @apply font-body text-[18px] font-normal leading-[1.65]; }
+  .text-body-md { @apply font-body text-[16px] font-normal leading-[1.65]; }
+  .text-body-sm { @apply font-body text-[14px] font-normal leading-[1.65]; }
+  
+  .btn-primary { @apply inline-flex items-center justify-center bg-brand-primary hover:bg-brand-hover text-content-primary font-body text-[15px] font-semibold h-[48px] px-[28px] rounded-[8px] transition-colors duration-150; }
+  .btn-secondary { @apply inline-flex items-center justify-center bg-transparent hover:bg-white/5 border border-white/40 hover:border-white text-content-primary font-body text-[15px] font-medium h-[48px] px-[28px] rounded-[8px] transition-colors duration-150; }
+  .btn-ghost { @apply inline-flex items-center text-brand-primary font-body text-[15px] font-medium hover:underline transition-all duration-150; }
+  
+  .card { @apply bg-surface border border-border-subtle rounded-[10px] p-[24px] hover:border-border-accent hover:shadow-glow transition-all duration-200; }
+  
+  /* Force pointer cursor on all clickable elements */
+  button, 
+  a, 
+  [role="button"],
+  .cursor-pointer {
+    @apply cursor-pointer;
   }
 }
 
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 8px rgba(0,94,255,0.4)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 16px rgba(0,94,255,0.8)); }
+}
+
+.animate-node-pulse { 
+  animation: pulse-glow 3s infinite ease-in-out; 
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-base text-content-primary font-body antialiased selection:bg-brand-primary selection:text-white;
 }
