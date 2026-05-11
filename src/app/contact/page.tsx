@@ -3,9 +3,12 @@ import { Briefcase, Handshake, LifeBuoy, Newspaper } from 'lucide-react';
 export default function Page() {
   return (
 <main className="pt-[140px] pb-[128px]">
-<section className="max-w-[1440px] mx-auto px-8 text-center mb-16">
+<section className="max-w-[1440px] mx-auto px-8 text-center mb-16 flex flex-col items-center">
+<div className="inline-flex items-center space-x-2 bg-brand-primary/10 border border-brand-primary/30 rounded-[8px] px-3 py-1 mb-6">
+<span className="text-[11px] font-semibold tracking-widest text-brand-primary uppercase">Typical Response Time: 2-4 Hours</span>
+</div>
 <h1 className="font-display text-[56px] font-bold leading-[1.05] text-white mb-6">Contact Us</h1>
-<p className="text-[18px] text-content-secondary max-w-[600px] mx-auto">Whether you're looking for enterprise solutions, partnership opportunities, or support, our team is here to help.</p>
+<p className="text-[18px] text-content-secondary max-w-[600px] mx-auto">Let's build a safer future together. Whether you're looking for enterprise solutions, partnership opportunities, or technical support, our dedicated specialists are ready to help.</p>
 </section>
 <section className="max-w-[1000px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
 

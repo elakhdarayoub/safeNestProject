@@ -51,6 +51,12 @@ export default function GlobalNav() {
               Defense
             </Link>
             <Link
+              href="/insights"
+              className={`text-[14px] font-medium transition-colors ${pathname === '/insights' ? 'text-brand-primary' : 'text-content-secondary hover:text-content-primary'}`}
+            >
+              Articles
+            </Link>
+            <Link
               href="/about"
               className={`text-[14px] font-medium transition-colors ${pathname === '/about' ? 'text-brand-primary' : 'text-content-secondary hover:text-content-primary'}`}
             >
@@ -84,6 +90,7 @@ export default function GlobalNav() {
             <Link href="/applications" onClick={() => setIsOpen(false)} className="text-[20px] font-display font-medium text-white hover:text-brand-primary">Applications</Link>
             <Link href="/enterprise" onClick={() => setIsOpen(false)} className="text-[20px] font-display font-medium text-white hover:text-brand-primary">Enterprise</Link>
             <Link href="/defense" onClick={() => setIsOpen(false)} className="text-[20px] font-display font-medium text-white hover:text-brand-primary">Defense</Link>
+            <Link href="/insights" onClick={() => setIsOpen(false)} className="text-[20px] font-display font-medium text-white hover:text-brand-primary">Articles</Link>
             <Link href="/about" onClick={() => setIsOpen(false)} className="text-[20px] font-display font-medium text-white hover:text-brand-primary">About Us</Link>
           </div>
           <div className="mt-auto pb-12 pt-6 border-t border-border-subtle">

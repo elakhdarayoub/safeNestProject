@@ -71,7 +71,8 @@ export default function GlobalFooter() {
         <div className="col-span-1">
           <h4 className="font-display font-semibold text-[15px] text-white mb-4">Resources</h4>
           <ul className="space-y-3">
-            <li><Link href="/resources" className="text-[14px] text-content-secondary hover:text-white transition-colors">Insights</Link></li>
+            <li><Link href="/insights" className="text-[14px] text-content-secondary hover:text-white transition-colors">Articles</Link></li>
+            <li><Link href="/resources" className="text-[14px] text-content-secondary hover:text-white transition-colors">Intelligence Hub</Link></li>
             <li><Link href="/faq" className="text-[14px] text-content-secondary hover:text-white transition-colors">FAQ</Link></li>
             <li><Link href="/demo" className="text-[14px] text-content-secondary hover:text-white transition-colors">Request Demo</Link></li>
             <li><Link href="/contact" className="text-[14px] text-content-secondary hover:text-white transition-colors">Contact</Link></li>

@@ -12,16 +12,19 @@ export default function Page() {
 <div className="absolute top-1/4 -right-[20%] w-[800px] h-[800px] bg-brand-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
 <div className="max-w-[1440px] w-full mx-auto px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
 
-<div className="lg:col-span-7 flex flex-col items-start pr-8">
-<span className="text-eyebrow mb-6">PROACTIVE SAFETY INTELLIGENCE</span>
-<h1 className="text-display-hero text-content-primary mb-6">
-                        Proactive Safety Intelligence for <br/>
-<span className="text-brand-primary">Every Environment.</span>
+<div className="lg:col-span-7 flex flex-col items-start pr-8 mt-12 md:mt-0">
+<div className="inline-flex items-center space-x-2 bg-brand-primary/10 border border-brand-primary/30 rounded-[8px] px-3 py-1 mb-6 mt-8">
+<ShieldAlert className="w-[14px] h-[14px] text-brand-primary" />
+<span className="text-[11px] font-semibold tracking-widest text-brand-primary uppercase">Real-Time AI Risk Detection</span>
+</div>
+<h1 className="text-[48px] md:text-[80px] font-display font-bold leading-[1.05] text-white mb-6">
+                        Proactive Safety Intelligence <br/>
+<span className="text-brand-primary">for Every Environment.</span>
 </h1>
 <p className="text-body-lg text-content-secondary mb-10 max-w-[640px]">
-                        SafeNest is an AI-powered environmental safety intelligence platform that detects risk, understands context, and acts — before critical events occur.
+                        SafeNest is an AI-powered safety platform that detects environmental risks in real-time, intervening to save lives, secure facilities, and give families true peace of mind before critical events occur.
                     </p>
-<div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+<div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-16">
 <Link className="btn-primary w-full sm:w-auto" href="/solutions/platform">Explore Our Platform →</Link>
 <Link className="btn-secondary w-full sm:w-auto" href="/demo">
                             Watch Overview 
@@ -35,9 +38,15 @@ export default function Page() {
 <HeroGraphic />
 </div>
 </div>
+<a href="#features" className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-20 cursor-pointer group">
+  <span className="text-[11px] text-content-muted tracking-widest uppercase mb-2 group-hover:text-brand-primary transition-colors">Scroll</span>
+  <div className="w-8 h-8 rounded-full border border-border-subtle flex items-center justify-center bg-surface/50 backdrop-blur group-hover:border-brand-primary transition-colors">
+    <ArrowDown className="w-4 h-4 text-content-secondary group-hover:text-brand-primary transition-colors" />
+  </div>
+</a>
 </section>
 
-<section className="bg-surface w-full py-[40px] border-b border-border-subtle">
+<section id="features" className="bg-surface w-full py-[40px] border-b border-border-subtle">
 <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[64px]">
 <div className="flex flex-col">
 <BrainCircuit className="w-[32px] h-[32px] text-brand-primary mb-[16px]"></BrainCircuit>
@@ -65,9 +74,9 @@ export default function Page() {
 <section className="py-[128px] max-w-[1440px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-[96px] items-center">
 <div className="flex flex-col">
 <span className="text-eyebrow mb-4">THE SAFENEST PLATFORM</span>
-<h2 className="text-display-lg text-content-primary mb-6">A Unified Platform.<br/>Limitless Impact.</h2>
+<h2 className="text-display-lg text-content-primary mb-6">A Unified Platform.<br/>Lives Protected.</h2>
 <p className="text-body-md text-content-secondary mb-8 max-w-[500px]">
-                    At the core of every SafeNest product is a sophisticated intelligence engine. By processing multi-factor data at the edge, our platform delivers sub-second predictive insights that scale from a single car seat to an entire metropolitan facility.
+                    At the core of every SafeNest product is a sophisticated intelligence engine. By processing multi-factor data at the edge, our platform delivers sub-second predictive insights that scale from protecting a single infant in a car seat to securing an entire metropolitan facility.
                 </p>
 <Link className="btn-ghost" href="#">Explore Our Technology →</Link>
 </div>
@@ -129,54 +138,58 @@ export default function Page() {
 <Link className="btn-secondary" href="#">View All Applications →</Link>
 </div>
 </div>
-<div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-6 gap-6">
 
-
-<Link href="/applications" className="group relative h-[300px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
+{/* Hero Industries */}
+<Link href="/applications" className="md:col-span-3 group relative h-[320px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
 <img alt="Child Safety" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105" src="/images/ai_vehicle_seat_baby.png"/>
 <div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-transparent"></div>
-<div className="absolute bottom-0 left-0 w-full p-6">
-<span className="font-display font-semibold text-[18px] text-white">Child Safety</span>
+<div className="absolute bottom-0 left-0 w-full p-8">
+<span className="font-display font-semibold text-[24px] text-white">Child Safety</span>
+<p className="text-[14px] text-content-secondary mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Predictive monitoring for uncompromised infant protection.</p>
 </div>
 </Link>
 
-<Link href="/applications" className="group relative h-[300px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
+<Link href="/applications" className="md:col-span-3 group relative h-[320px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
+<img alt="Military Defense" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105" src="/images/ai_military_defense.png"/>
+<div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-transparent"></div>
+<div className="absolute bottom-0 left-0 w-full p-8">
+<span className="font-display font-semibold text-[24px] text-white">Military & Defense</span>
+<p className="text-[14px] text-content-secondary mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Tactical edge intelligence for high-stakes environments.</p>
+</div>
+</Link>
+
+<Link href="/applications" className="md:col-span-6 group relative h-[300px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
+<img alt="Workplace Safety" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105" src="/images/ai_workplace_safety.png"/>
+<div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-transparent"></div>
+<div className="absolute bottom-0 left-0 w-full p-8">
+<span className="font-display font-semibold text-[24px] text-white">Enterprise & Workplace</span>
+<p className="text-[14px] text-content-secondary mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Comprehensive facility security and operational safety.</p>
+</div>
+</Link>
+
+{/* Supporting Industries */}
+<Link href="/applications" className="md:col-span-2 group relative h-[220px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
 <img alt="Pet Safety" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105" src="/images/ai_tech_dog.png"/>
 <div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-transparent"></div>
 <div className="absolute bottom-0 left-0 w-full p-6">
-<span className="font-display font-semibold text-[18px] text-white">Pet Safety</span>
+<span className="font-display font-semibold text-[16px] text-white">Pet Safety</span>
 </div>
 </Link>
 
-<Link href="/applications" className="group relative h-[300px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
-<img alt="Workplace Safety" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105" src="/images/ai_workplace_safety.png"/>
-<div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-transparent"></div>
-<div className="absolute bottom-0 left-0 w-full p-6">
-<span className="font-display font-semibold text-[18px] text-white">Workplace Safety</span>
-</div>
-</Link>
-
-<Link href="/applications" className="group relative h-[300px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
+<Link href="/applications" className="md:col-span-2 group relative h-[220px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
 <img alt="Smart Cities" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105" src="/images/ai_smart_cities.png"/>
 <div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-transparent"></div>
 <div className="absolute bottom-0 left-0 w-full p-6">
-<span className="font-display font-semibold text-[18px] text-white">Smart Cities</span>
+<span className="font-display font-semibold text-[16px] text-white">Smart Cities</span>
 </div>
 </Link>
 
-<Link href="/applications" className="group relative h-[300px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
+<Link href="/applications" className="md:col-span-2 group relative h-[220px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
 <img alt="Fleet Safety" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105" src="/images/ai_fleet_monitoring.png"/>
 <div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-transparent"></div>
 <div className="absolute bottom-0 left-0 w-full p-6">
-<span className="font-display font-semibold text-[18px] text-white">Fleet Monitoring</span>
-</div>
-</Link>
-
-<Link href="/applications" className="group relative h-[300px] rounded-xl overflow-hidden bg-surface border border-border-subtle cursor-pointer block">
-<img alt="Military Defense" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-500 group-hover:scale-105" src="/images/ai_military_defense.png"/>
-<div className="absolute inset-0 bg-gradient-to-t from-base via-base/50 to-transparent"></div>
-<div className="absolute bottom-0 left-0 w-full p-6">
-<span className="font-display font-semibold text-[18px] text-white">Military & Defense</span>
+<span className="font-display font-semibold text-[16px] text-white">Fleet Monitoring</span>
 </div>
 </Link>
 </div>

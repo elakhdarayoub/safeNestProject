@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import GlobalNav from "@/components/GlobalNav";
 import GlobalFooter from "@/components/GlobalFooter";
+import StickyCTA from "@/components/StickyCTA";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,6 +40,7 @@ export default function RootLayout({
         <div className="flex-1">
           {children}
         </div>
+        <StickyCTA />
         <GlobalFooter />
       </body>
     </html>
