@@ -1,7 +1,20 @@
+import type { Metadata } from 'next';
 import { Activity, ArrowRight, ArrowDown, Brain, BrainCircuit, Bus, Coffee, Cpu, GraduationCap, Home, Layers, Lock, Play, Plus, Radio, Send, ShieldAlert, Tractor, Zap } from 'lucide-react';
 import Link from 'next/link';
 import HeroGraphic from '@/components/HeroGraphic';
 import ArchitecturePipeline from '@/components/ArchitecturePipeline';
+
+export const metadata: Metadata = {
+  title: 'SafeNest Technologies | Predict. Prioritize. Prevent.',
+  description: 'AI-powered proactive safety intelligence for every environment. Protecting people, animals, infrastructure, and assets through real-time predictive analytics.',
+  openGraph: {
+    title: 'SafeNest Technologies | Predict. Prioritize. Prevent.',
+    description: 'AI-powered proactive safety intelligence for every environment.',
+    url: 'https://safenestsafety.com',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+  twitter: { card: 'summary_large_image' },
+};
 
 export default function Page() {
   return (

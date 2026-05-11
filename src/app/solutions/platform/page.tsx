@@ -1,6 +1,18 @@
+import type { Metadata } from 'next';
 import { Activity, Brain } from 'lucide-react';
 import Link from 'next/link';
 import PlatformGraphic from '@/components/PlatformGraphic';
+
+export const metadata: Metadata = {
+  title: 'Smart Monitoring Platform | SafeNest Technologies',
+  description: 'One Platform. Limitless Protection. The SafeNest Smart Monitoring Platform delivers real-time AI safety intelligence for enterprise, government, and critical infrastructure.',
+  openGraph: {
+    title: 'Smart Monitoring Platform | SafeNest Technologies',
+    description: 'One Platform. Limitless Protection. Cloud-native AI safety intelligence at enterprise scale.',
+    url: 'https://safenestsafety.com/solutions/platform',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

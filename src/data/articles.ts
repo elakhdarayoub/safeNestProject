@@ -3,6 +3,7 @@ export interface Article {
   title: string;
   category: string;
   date: string;
+  lastModified?: string;
   readTime: string;
   excerpt: string;
   content: string;
@@ -19,6 +20,7 @@ export const articles: Article[] = [
     title: 'How Predictive AI Reduced Industrial Incidents by 40% in Global Manufacturing Facilities',
     category: 'Case Study',
     date: 'Oct 12, 2026',
+    lastModified: 'Oct 14, 2026',
     readTime: '8 min read',
     excerpt: 'A comprehensive look at our deployment across 12 Fortune 500 manufacturing plants, detailing how the SafeNest intelligence platform transitioned these facilities from reactive monitoring to proactive incident prevention.',
     author: {
@@ -54,6 +56,7 @@ The outcomes exceeded initial projections. Over a 12-month period, the facilitie
     title: 'SafeNest Core V2.4: Enhanced Sensor Fusion Capabilities',
     category: 'Platform Update',
     date: 'Oct 15, 2026',
+    lastModified: 'Oct 16, 2026',
     readTime: '5 min read',
     excerpt: 'Exploring the balance between comprehensive environmental monitoring and privacy preservation in our latest architecture update.',
     author: {
@@ -74,6 +77,7 @@ One of our primary goals with V2.4 was to enhance privacy preservation without c
     title: 'The Ethical Implications of Edge Computing in Public Spaces',
     category: 'AI Safety',
     date: 'Oct 18, 2026',
+    lastModified: 'Oct 18, 2026',
     readTime: '12 min read',
     excerpt: 'How we balance public safety with individual privacy through decentralized, anonymized AI processing at the edge.',
     author: {
@@ -94,6 +98,7 @@ Edge computing provides the technical foundation to resolve this paradox. By pus
     title: 'SafeNest Expands to European Markets: New Berlin HQ',
     category: 'News',
     date: 'Oct 20, 2026',
+    lastModified: 'Oct 21, 2026',
     readTime: '3 min read',
     excerpt: 'SafeNest Technologies officially opens its European headquarters in Berlin, marking a significant milestone in our global mission to standardize AI safety.',
     author: {
@@ -114,6 +119,7 @@ Berlin represents a hub of innovation and a commitment to data privacy—values 
     title: 'Case Study: Real-time Pedestrian Safety in Singapore Smart Districts',
     category: 'Case Study',
     date: 'Oct 22, 2026',
+    lastModified: 'Oct 22, 2026',
     readTime: '10 min read',
     excerpt: 'How SafeNest sensors are protecting pedestrians at high-risk intersections in Singapore through predictive behavioral analysis.',
     author: {
@@ -134,6 +140,7 @@ In collaboration with local transport authorities, we deployed SafeNest nodes at
     title: 'SafeNest Mobile: Real-time Alerts Now in Your Pocket',
     category: 'Platform Update',
     date: 'Oct 25, 2026',
+    lastModified: 'Oct 26, 2026',
     readTime: '4 min read',
     excerpt: 'The long-awaited SafeNest mobile application is here, bringing critical environmental alerts and facility status to security teams on the move.',
     author: {

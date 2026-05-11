@@ -1,4 +1,16 @@
+import type { Metadata } from 'next';
 import { BrainCircuit, Cpu, Radio, Siren } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'How It Works | SafeNest Technologies',
+  description: 'Learn how SafeNest\'s three-step intelligence loop — Detect, Analyze, Respond — prevents incidents before they occur using multi-sensor AI fusion.',
+  openGraph: {
+    title: 'How It Works | SafeNest Technologies',
+    description: 'Detect. Analyze. Respond. The SafeNest intelligence loop explained.',
+    url: 'https://safenestsafety.com/how-it-works',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

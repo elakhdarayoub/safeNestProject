@@ -1,47 +1,42 @@
 "use client";
 
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { CheckCircle, User, Loader2, ShieldCheck } from 'lucide-react';
 import PremiumInput from '@/components/PremiumInput';
+import { demoSchema, type DemoFormData } from '@/lib/validations';
 
 export default function Page() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [serverError, setServerError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrors({});
-    setIsSubmitting(true);
-    
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(formData);
-    
-    // Simulate validation
-    const newErrors: Record<string, string> = {};
-    if (!data.firstName) newErrors.firstName = "First name is required";
-    if (!data.lastName) newErrors.lastName = "Last name is required";
-    if (!data.email) newErrors.email = "Work email is required";
-    else if (!(data.email as string).includes('@')) newErrors.email = "Please enter a valid email";
-    if (!data.company) newErrors.company = "Company name is required";
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<DemoFormData>({ resolver: zodResolver(demoSchema) });
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      setIsSubmitting(false);
-      return;
-    }
-
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+  const onSubmit = async (data: DemoFormData) => {
+    setServerError('');
+    const res = await fetch('/api/demo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+    const json = await res.json();
+    if (json.success) {
       setIsSuccess(true);
-    }, 1500);
+    } else {
+      setServerError(json.error ?? 'Something went wrong. Please try again.');
+    }
   };
 
   return (
     <main className="pt-[140px] pb-[128px]">
       <section className="max-w-[1200px] mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
-        
+
         <div>
           <div className="inline-flex items-center space-x-2 bg-brand-primary/10 border border-brand-primary/30 rounded-[8px] px-3 py-1 mb-6">
             <ShieldCheck className="w-[14px] h-[14px] text-brand-primary" />
@@ -72,7 +67,7 @@ export default function Page() {
               </div>
             </li>
           </ul>
-          
+
           <div className="mt-12 p-6 bg-surface border border-border-subtle rounded-[12px]">
             <div className="flex items-center space-x-4 mb-4">
               <div className="w-12 h-12 bg-elevated rounded-full flex items-center justify-center">
@@ -94,54 +89,84 @@ export default function Page() {
               </div>
               <h3 className="font-display text-[28px] font-bold text-white mb-4">Request Received</h3>
               <p className="text-content-secondary mb-8 max-w-[300px]">Thank you. A SafeNest specialist will be in touch within 24 hours to schedule your demo.</p>
-              <button onClick={() => setIsSuccess(false)} className="btn-secondary">Submit Another Request</button>
+              <button onClick={() => { setIsSuccess(false); reset(); }} className="btn-secondary">Submit Another Request</button>
             </div>
           ) : (
             <>
               <h3 className="font-display text-[24px] font-bold text-white mb-6">Request Your Demo</h3>
-              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+                {/* Honeypot — hidden from real users */}
+                <input type="text" {...register('honeypot')} className="hidden" tabIndex={-1} autoComplete="off" />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <PremiumInput 
-                    name="firstName" 
-                    label="First Name *" 
-                    error={errors.firstName}
+                  <PremiumInput
+                    label="First Name *"
+                    error={errors.firstName?.message}
+                    {...register('firstName')}
                   />
-                  <PremiumInput 
-                    name="lastName" 
-                    label="Last Name *" 
-                    error={errors.lastName}
+                  <PremiumInput
+                    label="Last Name *"
+                    error={errors.lastName?.message}
+                    {...register('lastName')}
                   />
                 </div>
-                
-                <PremiumInput 
-                  name="email" 
-                  type="email" 
-                  label="Work Email *" 
-                  error={errors.email}
+
+                <PremiumInput
+                  type="email"
+                  label="Work Email *"
+                  error={errors.email?.message}
+                  {...register('email')}
                 />
-                
-                <PremiumInput 
-                  name="company" 
-                  label="Company *" 
-                  error={errors.company}
+
+                <PremiumInput
+                  label="Company *"
+                  error={errors.company?.message}
+                  {...register('company')}
                 />
-                
+
+                <PremiumInput
+                  label="Phone"
+                  error={errors.phone?.message}
+                  {...register('phone')}
+                />
+
+                <PremiumInput
+                  label="Message"
+                  isTextArea
+                  error={errors.message?.message}
+                  {...register('message')}
+                />
+
                 <div className="relative">
                   <label className="absolute left-4 top-2 text-[11px] text-content-muted pointer-events-none z-10">
                     Primary Interest *
                   </label>
-                  <select name="interest" className="w-full bg-base border border-border-subtle rounded-[8px] h-[56px] pt-5 px-4 text-white text-[16px] focus:border-brand-primary outline-none transition-all appearance-none hover:border-brand-primary/50 relative">
-                    <option value="enterprise">Enterprise Platform</option>
-                    <option value="defense">Defense & Military</option>
-                    <option value="automotive">Automotive / Fleet</option>
+                  <select
+                    {...register('interest')}
+                    className="w-full bg-base border border-border-subtle rounded-[8px] h-[56px] pt-5 px-4 text-white text-[16px] focus:border-brand-primary outline-none transition-all appearance-none hover:border-brand-primary/50"
+                  >
+                    <option value="smart-platform">Enterprise Platform</option>
+                    <option value="defensenest-k9">Defense & Military</option>
+                    <option value="safenest-car">SafeNest Car Safety</option>
+                    <option value="enterprise">Enterprise Solutions</option>
+                    <option value="partnership">Strategic Partnership</option>
                     <option value="other">Other</option>
                   </select>
+                  {errors.interest && (
+                    <p className="text-[12px] text-red-400 mt-1">{errors.interest.message}</p>
+                  )}
                 </div>
-                
+
+                {serverError && (
+                  <div className="bg-red-500/10 border border-red-500/20 rounded-[8px] px-4 py-3 text-[13px] text-red-400">
+                    {serverError}
+                  </div>
+                )}
+
                 <div className="pt-4">
-                  <button 
+                  <button
                     disabled={isSubmitting}
-                    className="w-full bg-brand-primary hover:bg-brand-hover text-white font-bold h-[56px] rounded-[8px] transition-all flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed group" 
+                    className="w-full bg-brand-primary hover:bg-brand-hover text-white font-bold h-[56px] rounded-[8px] transition-all flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed group"
                     type="submit"
                   >
                     {isSubmitting ? (

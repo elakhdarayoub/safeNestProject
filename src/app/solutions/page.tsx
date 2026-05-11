@@ -1,5 +1,17 @@
+import type { Metadata } from 'next';
 import { Activity, Bot, BrainCircuit, Flame, HeartPulse, Network, Radio, Server, Shield, ShieldCheck, Smartphone, Thermometer } from 'lucide-react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Solutions | SafeNest Technologies',
+  description: 'Explore SafeNest\'s full product suite — SafeNest Car, DefenseNest K9, and the Smart Monitoring Platform. AI-powered safety for every environment.',
+  openGraph: {
+    title: 'Solutions | SafeNest Technologies',
+    description: 'Three product lines, one mission: proactive safety intelligence for every environment.',
+    url: 'https://safenestsafety.com/solutions',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

@@ -1,4 +1,16 @@
+import type { Metadata } from 'next';
 import { Check, X } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'DefenseNest K9 | Military Working Dog Safety',
+  description: 'DefenseNest K9 — AI-powered thermal monitoring and health tracking for military working dogs. Because they can\'t tell us they\'re in danger.',
+  openGraph: {
+    title: 'DefenseNest K9 | Military Working Dog Safety',
+    description: 'AI-powered protection for military working dogs. Real-time health and thermal monitoring in the field.',
+    url: 'https://safenestsafety.com/solutions/defensenest-k9',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

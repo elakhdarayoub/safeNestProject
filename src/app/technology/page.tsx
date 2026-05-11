@@ -1,4 +1,16 @@
+import type { Metadata } from 'next';
 import { Cpu, Network } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Technology | SafeNest Technologies',
+  description: 'The engineering behind SafeNest — multi-sensor fusion, edge AI inference, real-time predictive analytics, and a unified safety intelligence platform.',
+  openGraph: {
+    title: 'Technology | SafeNest Technologies',
+    description: 'Multi-sensor fusion, edge AI, and real-time predictive analytics for proactive safety.',
+    url: 'https://safenestsafety.com/technology',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

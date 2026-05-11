@@ -1,3 +1,9 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service | SafeNest Technologies',
+  description: 'SafeNest Technologies terms of service — the rules and guidelines governing use of our platform and products.',
+};
 
 export default function Page() {
   return (

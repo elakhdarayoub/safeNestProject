@@ -1,5 +1,17 @@
+import type { Metadata } from 'next';
 import { Activity, Flame, HeartPulse, Radio, Shield } from 'lucide-react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Defense & Military | SafeNest Technologies',
+  description: 'AI-powered safety intelligence for defense and military operations. From military working dog monitoring to base perimeter intelligence and field asset protection.',
+  openGraph: {
+    title: 'Defense & Military | SafeNest Technologies',
+    description: 'Protecting personnel, assets, and military working dogs with AI-powered field intelligence.',
+    url: 'https://safenestsafety.com/defense',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

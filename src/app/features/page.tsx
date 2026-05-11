@@ -1,4 +1,16 @@
+import type { Metadata } from 'next';
 import { Activity, Cpu, Eye, Lock, Network, Plug, ShieldAlert, Thermometer, WifiOff } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Features | SafeNest Technologies',
+  description: 'Explore the full feature set of the SafeNest platform — real-time AI monitoring, predictive risk scoring, multi-sensor fusion, edge processing, and compliance reporting.',
+  openGraph: {
+    title: 'Features | SafeNest Technologies',
+    description: 'Every capability of the SafeNest AI safety platform explained.',
+    url: 'https://safenestsafety.com/features',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

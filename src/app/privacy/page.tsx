@@ -1,3 +1,9 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy | SafeNest Technologies',
+  description: 'SafeNest Technologies privacy policy — how we collect, use, and protect your data.',
+};
 
 export default function Page() {
   return (

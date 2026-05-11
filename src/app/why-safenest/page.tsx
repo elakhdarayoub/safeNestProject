@@ -1,4 +1,16 @@
+import type { Metadata } from 'next';
 import { Bell, Brain, Check, Minus, Network, Shield, X } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Why SafeNest | AI-First Proactive Safety',
+  description: 'Why SafeNest outperforms traditional monitoring — AI-first architecture, real-time predictive intelligence, unified platform, zero passive observation.',
+  openGraph: {
+    title: 'Why SafeNest | AI-First Proactive Safety',
+    description: 'Proactive over reactive. Predictive over monitoring-only. See how SafeNest compares.',
+    url: 'https://safenestsafety.com/why-safenest',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

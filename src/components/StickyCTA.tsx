@@ -30,7 +30,7 @@ export default function StickyCTA() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (isDismissed || !isVisible || pathname === '/admin/articles/create') return null;
+  if (isDismissed || !isVisible || pathname?.startsWith('/admin')) return null;
 
   return (
     <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in">

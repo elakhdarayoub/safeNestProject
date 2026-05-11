@@ -1,4 +1,16 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Applications | SafeNest Technologies',
+  description: 'SafeNest protects across 11 industries — child safety, workplace safety, smart cities, defense, healthcare, fleet, agriculture, and more.',
+  openGraph: {
+    title: 'Applications | SafeNest Technologies',
+    description: 'Proactive AI safety intelligence deployed across 11 industries worldwide.',
+    url: 'https://safenestsafety.com/applications',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

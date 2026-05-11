@@ -9,6 +9,8 @@ export default function GlobalNav() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
+  const isManagerAuth = false;
+
   return (
     <>
       <nav className="fixed top-0 left-0 w-full h-[72px] z-50 bg-base/90 backdrop-blur-[20px] border-b border-border-subtle flex items-center px-4 md:px-8 transition-all">
@@ -66,13 +68,19 @@ export default function GlobalNav() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex">
-            <Link href="/contact" className="btn-primary !h-[38px] !text-[14px] !px-5">
-              Partner With Us
-            </Link>
+            {isManagerAuth ? (
+              <Link href="/admin/dashboard" className="btn-primary !h-[38px] !text-[14px] !px-5 !bg-[#00C47A] hover:!bg-[#00A365] border-none shadow-[0_0_15px_rgba(0,196,122,0.3)]">
+                Dashboard
+              </Link>
+            ) : (
+              <Link href="/contact" className="btn-primary !h-[38px] !text-[14px] !px-5">
+                Partner With Us
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button 
+          <button
             className="lg:hidden text-content-primary z-50 p-2"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -94,9 +102,15 @@ export default function GlobalNav() {
             <Link href="/about" onClick={() => setIsOpen(false)} className="text-[20px] font-display font-medium text-white hover:text-brand-primary">About Us</Link>
           </div>
           <div className="mt-auto pb-12 pt-6 border-t border-border-subtle">
-            <Link href="/contact" onClick={() => setIsOpen(false)} className="btn-primary w-full !h-[48px] text-center">
-              Partner With Us
-            </Link>
+            {isManagerAuth ? (
+              <Link href="/admin/dashboard" onClick={() => setIsOpen(false)} className="btn-primary w-full !h-[48px] text-center !bg-[#00C47A] hover:!bg-[#00A365] border-none shadow-[0_0_15px_rgba(0,196,122,0.3)]">
+                Dashboard
+              </Link>
+            ) : (
+              <Link href="/contact" onClick={() => setIsOpen(false)} className="btn-primary w-full !h-[48px] text-center">
+                Partner With Us
+              </Link>
+            )}
           </div>
         </div>
       )}

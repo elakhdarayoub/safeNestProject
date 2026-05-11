@@ -1,3 +1,15 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Our Story | SafeNest Technologies',
+  description: 'The origin of SafeNest Technologies — why we built a company around proactive safety intelligence and what drives our mission.',
+  openGraph: {
+    title: 'Our Story | SafeNest Technologies',
+    description: 'How SafeNest began and what drives our mission to make every environment safer.',
+    url: 'https://safenestsafety.com/story',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (

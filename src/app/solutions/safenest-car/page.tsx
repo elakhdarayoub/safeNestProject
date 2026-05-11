@@ -1,5 +1,17 @@
+import type { Metadata } from 'next';
 import { Activity, AlertOctagon, ShieldCheck, Smartphone, Thermometer } from 'lucide-react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'SafeNest Car | AI Infant Vehicle Safety',
+  description: 'SafeNest Car — AI-powered infant safety monitoring for vehicles. Heatstroke prevention, inactivity detection, smart alerts, and family sharing built in.',
+  openGraph: {
+    title: 'SafeNest Car | AI Infant Vehicle Safety',
+    description: 'Smarter Safety From The Start. AI-powered infant monitoring that prevents heatstroke and keeps families safe.',
+    url: 'https://safenestsafety.com/solutions/safenest-car',
+    images: [{ url: '/images/og-default.jpg', width: 1200, height: 630 }],
+  },
+};
 
 export default function Page() {
   return (
